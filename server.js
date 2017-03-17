@@ -37,14 +37,14 @@ const doEmailAlert = (err, req, res, next) => {
     logger.info(`Attemting to send an error alert email to ${ALERT_TO_EMAIL}`);
   
   
-  const emailData = {
+  const emailBody = {
     from: ALERT_FROM_EMAIL,
     to: ALERT_TO_EMAIL,
     subject: `SERVICE ALERT ${err.name}`,
     text: `Something went wrong here is what we know\n\n${err.stack}`
     
   };
-  sendEmail(emailData);
+  sendEmail(emailBody);
 }
   next(err);
 };
